@@ -55,7 +55,7 @@ Implement any of the following features to improve the application:
 #### The `App` Component
 
 - [ ] Build the `App` component to:
-  - [ ] Be wrapped by an element with the class name of `app`
+  - [x] Be wrapped by an element with the class name of `app`
   - [ ] Contain the routes for the app
   - [ ] Render the `Navbar` component on every route
   - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
@@ -363,21 +363,21 @@ Here are the pieces of functionality that should be built out for the backend:
   - [x] Make sure `node_modules` are added to the `.gitignore` file.
   - [x] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
   - [x] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
-  - [ ] Commit all work to `git`
-  - [ ] Add a `.env` file to the root of the repo and include the following environment variables
-    - [ ] `PORT` (default to `3001`)
-    - [ ] `SECRET_KEY` (set to a long random string)
-    - [ ] `BCRYPT_WORK_FACTOR` (set to `13`)
-    - [ ] `DATABASE_USER`
-    - [ ] `DATABASE_PASS`
-    - [ ] `DATABASE_HOST`
-    - [ ] `DATABASE_PORT`
-    - [ ] `DATABASE_NAME` - (set to `lifetracker`)
-    - [ ] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
+  - [x] Commit all work to `git`
+  - [x] Add a `.env` file to the root of the repo and include the following environment variables
+    - [x] `PORT` (default to `3001`)
+    - [x] `SECRET_KEY` (set to a long random string)
+    - [x] `BCRYPT_WORK_FACTOR` (set to `13`)
+    - [x] `DATABASE_USER`
+    - [x] `DATABASE_PASS`
+    - [x] `DATABASE_HOST`
+    - [x] `DATABASE_PORT`
+    - [x] `DATABASE_NAME` - (set to `lifetracker`)
+    - [x] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
   - [ ] Add a `config.test.js` file
     - [ ] Write tests that check to make sure that:
-      - [ ] `process.env.NODE_ENV` is set to `test` when the test suite is run
-      - [ ] There is an `IS_TESTING` variable that is exported, which should only be true if `process.env.NODE_ENV` is set to `test`
+      - [x] `process.env.NODE_ENV` is set to `test` when the test suite is run
+      - [x] There is an `IS_TESTING` variable that is exported, which should only be true if `process.env.NODE_ENV` is set to `test`
     - [ ] Write tests to ensure that certain environment variables are exported from the `config.js` file and can be imported:
       - [ ] `PORT`
       - [ ] `SECRET_KEY`
