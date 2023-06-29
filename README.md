@@ -374,24 +374,24 @@ Here are the pieces of functionality that should be built out for the backend:
     - [x] `DATABASE_PORT`
     - [x] `DATABASE_NAME` - (set to `lifetracker`)
     - [x] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
-  - [ ] Add a `config.test.js` file
-    - [ ] Write tests that check to make sure that:
+  - [x] Add a `config.test.js` file
+    - [x] Write tests that check to make sure that:
       - [x] `process.env.NODE_ENV` is set to `test` when the test suite is run
       - [x] There is an `IS_TESTING` variable that is exported, which should only be true if `process.env.NODE_ENV` is set to `test`
-    - [ ] Write tests to ensure that certain environment variables are exported from the `config.js` file and can be imported:
-      - [ ] `PORT`
+    - [x] Write tests to ensure that certain environment variables are exported from the `config.js` file and can be imported:
+      - [x] `PORT`
       - [ ] `SECRET_KEY`
-      - [ ] `BCRYPT_WORK_FACTOR`
-      - [ ] `IS_TESTING`
-    - [ ] Write tests to ensure that a `getDatabaseUri` function is exported from the `config.js` file
-      - [ ] The `getDatabaseUri` function should:
-        - [ ] Check to see if a valid `process.env.DATABASE_URL` environment variable exists, and return that if it does.
-        - [ ] When `IS_TESTING` is `true`, the `getDatabaseUri` function should use the test database
-        - [ ] Otherwise, it should combine the proper database environment variables into a database connection string if no `process.env.DATABASE_URL` environment variable exists
-  - [ ] Add a `config.js` file
-    - [ ] Use the `dotenv` package to parse the environment variables from the `.env` file.
-    - [ ] Export each of the environment variables from the `config.js` file until the tests pass
-    - [ ] Write a `getDatabaseUri` function so that all the tests pass
+      - [x] `BCRYPT_WORK_FACTOR`
+      - [x] `IS_TESTING`
+    - [x] Write tests to ensure that a `getDatabaseUri` function is exported from the `config.js` file
+      - [x] The `getDatabaseUri` function should:
+        - [x] Check to see if a valid `process.env.DATABASE_URL` environment variable exists, and return that if it does.
+        - [x] When `IS_TESTING` is `true`, the `getDatabaseUri` function should use the test database
+        - [x] Otherwise, it should combine the proper database environment variables into a database connection string if no `process.env.DATABASE_URL` environment variable exists
+  - [x] Add a `config.js` file
+    - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
+    - [x] Export each of the environment variables from the `config.js` file until the tests pass
+    - [x] Write a `getDatabaseUri` function so that all the tests pass
   - [ ] Commit all work to `git`
   - [ ] The project should now be ready to go!
 - [ ] **PostgreSQL database**
