@@ -392,8 +392,8 @@ Here are the pieces of functionality that should be built out for the backend:
     - [x] Use the `dotenv` package to parse the environment variables from the `.env` file.
     - [x] Export each of the environment variables from the `config.js` file until the tests pass
     - [x] Write a `getDatabaseUri` function so that all the tests pass
-  - [ ] Commit all work to `git`
-  - [ ] The project should now be ready to go!
+  - [x] Commit all work to `git`
+  - [x] The project should now be ready to go!
 - [ ] **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
