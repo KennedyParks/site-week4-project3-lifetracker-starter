@@ -15,6 +15,10 @@ export default function Navbar() {
       {location.pathname.indexOf("portal") === -1 ? (
         <ul>
           <li>
+           <Link to="/">
+              <button className="btn ghost">Home</button>
+            </Link>
+
             <Link to="/login">
               <button className="btn ghost">Log In</button>
             </Link>

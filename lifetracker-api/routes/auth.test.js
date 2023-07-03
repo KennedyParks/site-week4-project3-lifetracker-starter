@@ -60,7 +60,7 @@ describe("Auth Routes", () => {
   describe("POST /auth/register/", function () {
     test("Allows user to register with valid credentials", async function () {
       const resp = await request(app).post("/auth/register/").send({
-        username: "new",
+       // username: "new",
         firstName: "first",
         lastName: "last",
         password: "password",
@@ -74,7 +74,7 @@ describe("Auth Routes", () => {
 
     test("Throws Unprocessable Entity error when user doesn't provide all fields", async function () {
       const resp = await request(app).post("/auth/register/").send({
-        username: "new",
+       // username: "new",
       })
       expect(resp.statusCode).toEqual(422)
     })

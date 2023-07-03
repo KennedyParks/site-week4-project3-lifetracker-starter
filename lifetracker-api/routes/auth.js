@@ -1,21 +1,12 @@
 const express = require("express");
 const User = require("../models/user");
-const router = express.Router();
+const router = new express.Router();
 // const user = require("../models/user")
-const { createUserJwt } = require("../utils/tokens");
-const security = require("../middleware/security");
-​
-router.get("/me", security.verifyAuthUser, async (req, res, next) => {
-  try {
-    const { email } = res.locals.user;
-    const user = await User.fetchUserByEmail(email);
-    const publicUser = await User.makePublicUser(user);
-    return res.status(200).json({ user: publicUser });
-  } catch (err) {
-    next(err);
-  }
-});
-​
+// const { createUserJwt } = require("../utils/tokens");
+// const security = require("../middleware/security");
+
+
+
 router.post("/login", async (req, res, next) => {
   try {
     const user = await User.login(req.body); // take the users email and password and attempting to authenticate them
@@ -34,7 +25,7 @@ router.post("/register", async (req, res, next) => {
     next(err);
   }
 });
-​
+
 module.exports = router;
 
 

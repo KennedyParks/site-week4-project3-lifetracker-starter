@@ -11,6 +11,7 @@ const config = require("./config")
 const authRoutes = require("./routes/auth")
 
 const app = express()
+const port = 3001;
 
 // enable cross-origin resource sharing for all origins for all requests
 // NOTE: in production, we'll want to restrict this to only the origin
@@ -38,7 +39,7 @@ app.use(function (req, res, next) {
 
 /** Generic error handler; anything unhandled goes here. */
 app.use(function (err, req, res, next) {
-  if (!config.IS_TESTING) console.error(err.stack)
+//   if (!config.IS_TESTING) console.error(err.stack)
   const status = err.status || 500
   const message = err.message
 
@@ -46,5 +47,10 @@ app.use(function (err, req, res, next) {
     error: { message, status },
   })
 })
+
+
+app.listen(port, () => {
+  console.log(`:firecracker: Server listening on port ${port}`);
+});
 
 module.exports = app

@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios"
-// import MedicalResearch from "../MedicalResearch/MedicalResearch"
 import "./Register.css"
 
 const locationOptions = [
@@ -19,10 +18,11 @@ export default function Signup({ setAppState }) {
     firstName: "",
     lastName: "",
     email: "",
+    username: "",
     date: "",
     password: "",
     passwordConfirm: "",
-    location: "Local Clinic",
+    // location: "Local Clinic",
     agreeToTerms: false,
   })
 
@@ -65,11 +65,12 @@ export default function Signup({ setAppState }) {
     }
 
     try {
-      const res = await axios.post("http://localhost:5173/auth/register", {
+      const res = await axios.post("http://localhost:3001/auth/register", {
         date: form.date,
         location: form.location,
         firstName: form.firstName,
         lastName: form.lastName,
+       // username: form.username,
         email: form.email,
         password: form.password,
       })
@@ -96,7 +97,7 @@ export default function Signup({ setAppState }) {
 
       </div>
       <div className="card">
-        <h2>Register For a Vaccine</h2>
+        <h2>Register For LifeTracker!</h2>
 
         {errors.form && <span className="error">{errors.form}</span>}
         <br />
@@ -104,21 +105,11 @@ export default function Signup({ setAppState }) {
         <div className="form">
           <div className="split-inputs">
             <div className="input-field">
-              <label htmlFor="name">Select a date</label>
-              <input type="date" name="date" value={form.date} onChange={handleOnInputChange} />
-              {errors.date && <span className="error">{errors.date}</span>}
+
             </div>
 
             <div className="input-field">
-              <label htmlFor="name">Select a location</label>
-              <select name="location" onChange={(event) => setForm((f) => ({ ...f, location: event.target.value }))}>
-                {locationOptions.map((location) => (
-                  <option key={location.key} value={location.label}>
-                    {location.label}
-                  </option>
-                ))}
-              </select>
-              {errors.location && <span className="error">{errors.location}</span>}
+
             </div>
           </div>
 
@@ -160,6 +151,18 @@ export default function Signup({ setAppState }) {
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
+
+          {/* <div className="input-field">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="username"
+              value={form.username}
+              onChange={handleOnInputChange}
+            />
+            {errors.email && <span className="error">{errors.email}</span>}
+          </div> */}
 
           <div className="input-field">
             <label htmlFor="password">Password</label>
