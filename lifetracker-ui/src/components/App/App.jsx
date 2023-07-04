@@ -5,6 +5,7 @@ import Home from "../Home/Home"
 import Navbar from "../Navbar/Navbar"
 import Register from "../Register/Register"
 import Login from "../Login/Login"
+import Activity from "../Activity/Activity";
 // import Portal from "../Portal/Portal"
 import "./App.css"
 
@@ -19,6 +20,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register setAppState={setAppState} />} />
           <Route path="/login" element={<Login setAppState={setAppState} />} />
+          <Route path="/activity" element={<Activity setAppState={setAppState}/>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,9 +1,9 @@
 const express = require("express");
 const User = require("../models/user");
 const router = new express.Router();
-// const user = require("../models/user")
+const user = require("../models/user")
 // const { createUserJwt } = require("../utils/tokens");
-// const security = require("../middleware/security");
+const security = require("../middleware/security");
 
 
 
