@@ -1,5 +1,7 @@
 import React from "react";
 import "./Navbar.css";
+
+
 export default function Navbar({ isLoggedIn, setIsLoggedIn, setIsClicked }) {
   const checkLogin = () => {
     if (!isLoggedIn) {
@@ -8,10 +10,12 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setIsClicked }) {
   };
 
   const handleOnClick = () => {
-    if(isLoggedIn) {
-      setIsLoggedIn(false)
+    if (isLoggedIn) {
+      setIsLoggedIn(false);
     }
-  }
+  };
+  
+
   return (
     <div className="Navbar">
       <div className="content">

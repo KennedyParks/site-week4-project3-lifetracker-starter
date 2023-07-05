@@ -9,7 +9,9 @@ const security = require("../middleware/security");
 
 router.post("/login", async (req, res, next) => {
   try {
+    console.log(req.body)
     const user = await User.login(req.body); // take the users email and password and attempting to authenticate them
+    console.log(user)
     const token = createUserJwt(user);
     return res.status(200).json({ user, token });
   } catch (err) {

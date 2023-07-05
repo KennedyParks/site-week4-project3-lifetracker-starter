@@ -33,14 +33,16 @@ class User {
     });
 
     const user = await User.fetchUserByEmail(credentials.email);
+    console.log("userModel", user)
 
     if (user) {
       const isValid = await bcrypt.compare(credentials.password, user.password);
+      console.log("isValid", isValid)
       if (isValid) {
-        return User.makePublicUser(user);
+        return user;
       }
     }
-
+console.log("after bcrypt compare")
     throw new UnauthorizedError("Invalid credentials");
   }
 
