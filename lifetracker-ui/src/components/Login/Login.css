@@ -31,7 +31,6 @@ ul {
   font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  color: black;
 }
 
 * {
@@ -155,7 +154,7 @@ button {
 }
 
 .Login .card .footer, .Login .card .footer p, .Navbar {
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 
@@ -167,6 +166,7 @@ a {
 
 a:-webkit-any-link {
     cursor: pointer;
+    
 }
 
 .Login .card .footer {

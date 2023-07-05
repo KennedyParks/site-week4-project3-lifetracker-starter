@@ -6,12 +6,12 @@ const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan")
 
-// const { NotFoundError } = require("./utils/errors")
+const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
 
 const app = express()
-const port = 3001;
+const port = 3002;
 
 // enable cross-origin resource sharing for all origins for all requests
 // NOTE: in production, we'll want to restrict this to only the origin
@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 
 /** Generic error handler; anything unhandled goes here. */
 app.use(function (err, req, res, next) {
-//   if (!config.IS_TESTING) console.error(err.stack)
+if (!config.IS_TESTING) console.error(err.stack)
   const status = err.status || 500
   const message = err.message
 

@@ -1,53 +1,61 @@
-import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import axios from "axios"
-// import MedicalResearch from "../MedicalResearch/MedicalResearch"
-// import undraw_medical_research from "../../assets/undraw_medical_research_deep_blue.svg"
-import "./Login.css"
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Login.css";
 
-export default function Login({ setAppState }) {
-  const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
-  const [errors, setErrors] = useState({})
+export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     email: "",
     password: "",
-  })
+  });
 
   const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {
-        setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
+        setErrors((e) => ({ ...e, email: "Please enter a valid email." }));
       } else {
-        setErrors((e) => ({ ...e, email: null }))
+        setErrors((e) => ({ ...e, email: null }));
       }
     }
 
-    setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
-  }
+    setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
+  };
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setErrors((e) => ({ ...e, form: null }))
+    e.preventDefault();
+    setIsLoading(true);
+    setErrors((e) => ({ ...e, form: null }));
+
+    const user = {
+      email: form.email,
+      password: form.password,
+    };
 
     try {
-      const res = await axios.post(`http://localhost:5173/auth/login`, form)
-      if (res?.data) {
-        setAppState(res.data)
-        setIsLoading(false)
-        navigate("/portal")
+      const res = await axios.post(`http://localhost:3001/auth/login`, user);
+      if (res?.data?.user) {
+        setIsLoggedIn(true);
+        setIsClicked(false);
+        setAppState(res.data);
+        navigate("/activity");
       } else {
-        setErrors((e) => ({ ...e, form: "Invalid username/password combination" }))
-        setIsLoading(false)
+        setErrors((e) => ({
+          ...e,
+          user: "Invalid username/password combination",
+        }));
       }
     } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-      setIsLoading(false)
+      console.log(err);
+      const message = err?.response?.data?.error?.message;
+      setErrors((e) => ({
+        ...e,
+        user: message ? String(message) : String(err),
+      }));
     }
-  }
+  };
 
   return (
     <div className="Login">
@@ -55,7 +63,7 @@ export default function Login({ setAppState }) {
       </div>
 
       <div className="card">
-        <h2>Login to the Portal</h2>
+        <h2>Log into the Portal</h2>
 
         {Boolean(errors.form) && <span className="error">{errors.form}</span>}
         <br />
