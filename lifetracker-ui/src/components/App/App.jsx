@@ -9,7 +9,7 @@ import Activity from "../Activity/Activity"
 import Exercise from "../Exercise/Exercise"
 // import Portal from "../Portal/Portal"
 import "./App.css"
-import LoginForm from "../LoginForm/LoginForm"
+//import LoginForm from "../LoginForm/LoginForm"
 import Nutrition from "../Nutrition/Nutrition"
 import * as React from "react"
 
@@ -65,7 +65,7 @@ export default function App() {
               />
             }
           />
-                    <Route
+                    {/* <Route
             path="/nutrition"
             element={
               <Nutrition
@@ -84,7 +84,7 @@ export default function App() {
                 setAppState={setAppState}
               />
             }
-          />
+          /> */}
         </Routes>
       </BrowserRouter>
     </div>
