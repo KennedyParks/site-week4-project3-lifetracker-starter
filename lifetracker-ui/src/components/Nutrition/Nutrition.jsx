@@ -1,31 +1,38 @@
-import "./Nutrition.css";
-import React from 'react'
-import {useNavigate} from "react-router-dom"
-export default function Nutrition() {
-    const navigate = useNavigate();
+import React from "react";
+// import { createContext } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-   const handleOnClick =  (event) => {
-    event.preventDefault();
-    navigate("/nutrition/create")
-   }
+import "./Nutrition.css";
+import NutritionFeed from "../NutritionFeed/NutritionFeed";
+import NutritionForm from "../NutritionForm/NutritionForm";
+
+const Nutrition = () => {
+  const [nutritions, setNutritions] = useState([]);
   return (
-    <div className="NutritionPage">
-        <div className="Banner">
-            <h1>Nutrition</h1>
-        </div>
-        <div className="content">
-            <div className="NutritionOverview">
-                <div className="header">
-                    <h3>Overview</h3>
-                    <button className="BlueButton" onClick={handleOnClick}>Record Nutrition</button>
-                </div>
-                <div className="feed">
-                    <div className="empty">
-                        <h2>Nothing here yet</h2>
-                    </div>
-                </div>
+    <div className="ExercisePage">
+      <div className="Banner">
+        <h1>Nutrition</h1>
+      </div>
+      <div className="content">
+        <div className="ExerciseOverview">
+          <div className="header">
+            <h3>Overview</h3>
+            <Link to="/nutrition-form">
+              <button className="Button outline small outline aqua">Record Nutrition</button>
+            </Link>
+            {/* <NutritionForm nutritions={nutritions} setNutritions={setNutritions} /> */}
+          </div>
+          <div className="feed">
+            <div className="empty">
+              <NutritionFeed nutritions={nutritions} setNutritions={setNutritions} />
+              <h2>Nothing Here Yet.</h2>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default Nutrition;

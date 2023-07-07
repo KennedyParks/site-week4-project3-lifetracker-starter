@@ -6,7 +6,7 @@ export default function Exercise() {
   return (
     <div className="ExercisePage">
       <div className="Banner">
-        <h1>Sleep</h1>
+        <h1>Exercise</h1>
       </div>
       <div className="content">
         <div className="ExerciseOverview">

@@ -11,7 +11,7 @@ const config = require("./config")
 const authRoutes = require("./routes/auth")
 
 const app = express()
-const port = 3002;
+const port = 3001;
 
 // enable cross-origin resource sharing for all origins for all requests
 // NOTE: in production, we'll want to restrict this to only the origin

@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
-import * as React from "react";
 
-export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
+export default function Login({ setAppState, setIsClicked }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -12,8 +11,17 @@ export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
     email: "",
     password: "",
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleOnInputChange = (event) => {
+  useEffect(() => {
+    // Check if the user is already logged in based on the persisted state
+    const storedLoggedInStatus = localStorage.getItem("isLoggedIn");
+    if (storedLoggedInStatus === "true") {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+const handleOnInputChange = (event) => {
     if (event.target.name === "email") {
       if (event.target.value.indexOf("@") === -1) {
         setErrors((e) => ({ ...e, email: "Please enter a valid email." }));
@@ -41,7 +49,10 @@ export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
         setIsLoggedIn(true);
         setIsClicked(false);
         setAppState(res.data);
-        navigate("/activity");
+        navigate("/login");
+
+        // Store the authentication status in localStorage
+        localStorage.setItem("isLoggedIn", "true");
       } else {
         setErrors((e) => ({
           ...e,
@@ -58,10 +69,35 @@ export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
     }
   };
 
+  const handleSignOut = () => {
+    setIsLoggedIn(false);
+    // Remove the authentication status from localStorage
+    localStorage.removeItem("isLoggedIn");
+    // Redirect the user to the login page
+    navigate("/login");
+  };
+
+  if (isLoggedIn) {
+    // Render the logged-in state
+    return (
+      <div className="Login">
+        <div className="media"></div>
+
+        <div className="card">
+          <h2>Welcome back!</h2>
+          <p>You are logged in.</p>
+          <button className="btn" onClick={handleSignOut}>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Render the login form
   return (
     <div className="Login">
-      <div className="media">
-      </div>
+      <div className="media"></div>
 
       <div className="card">
         <h2>Log into the Portal</h2>
@@ -70,7 +106,7 @@ export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
         <br />
 
         <div className="form">
-          <div className="input-field">
+        <div className="input-field">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -93,7 +129,6 @@ export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
             />
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
-
           <button className="btn" disabled={isLoading} onClick={handleOnSubmit}>
             {isLoading ? "Loading..." : "Login"}
           </button>
@@ -106,5 +141,8 @@ export default function Login({ setAppState, setIsLoggedIn, setIsClicked }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
+
+
+

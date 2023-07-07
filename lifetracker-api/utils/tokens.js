@@ -1,3 +1,20 @@
+const testTokens = () => {
+  const user = { email: "person@gmail.com" };
+
+  const token = generateToken(user);
+  console.log("token", token);
+  const validatedToken = validateToken(token);
+  console.log("validatedToken", validatedToken);
+};
+
+
+
+
+
+
+
+
+
 const jwt = require("jsonwebtoken");
 
 function createUserJwt(user) {

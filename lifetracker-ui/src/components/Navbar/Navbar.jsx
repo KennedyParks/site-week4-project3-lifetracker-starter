@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 
 
-export default function Navbar({ isLoggedIn, setIsLoggedIn, setIsClicked }) {
+export default function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const checkLogin = () => {
     if (!isLoggedIn) {
       setIsClicked(true);
@@ -14,6 +14,16 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setIsClicked }) {
       setIsLoggedIn(false);
     }
   };
+
+  const handleSignOut = () => {
+    setIsLoggedIn(false);
+    // Remove the authentication status from localStorage
+    localStorage.removeItem("isLoggedIn");
+    // Redirect the user to the login page
+    navigate("/login");
+  };
+
+  
   
 
   return (
@@ -29,34 +39,36 @@ export default function Navbar({ isLoggedIn, setIsLoggedIn, setIsClicked }) {
         </div>
         <ul className="links">
           <li onClick={checkLogin}>
-            <a href={isLoggedIn ? "/activity" : "/activity"}>Activity</a>
+            <a href={isLoggedIn ? "/activity" : "/login"}>Activity</a>
           </li>
           <li onClick={checkLogin}>
-            <a href={isLoggedIn ? "/activity" : "/excercise"}>Excercise</a>
+            <a href={isLoggedIn ? "/exercise" : "/login"}>Excercise</a>
           </li>
 
           <li onClick={checkLogin}>
-            <a href={isLoggedIn ? "/activity" : "/login"}>Nutrition</a>
+            <a href={isLoggedIn ? "/nutrition" : "/login"}>Nutrition</a>
           </li>
           <li onClick={checkLogin}>
-            <a href={isLoggedIn ? "/activity" : "/login"}>Sleep</a>
+            <a href={isLoggedIn ? "/sleep" : "/login"}>Sleep</a>
           </li>
 
-          <li>
-            <a href="/login">Login</a>
-          </li>
           {isLoggedIn ? (
-           <a href="/register">
-           <li className="secondary btn" onClick={handleOnClick}>        
-             <span> Sign out</span>     
-           </li>
+           <a href="/login">
+           <button className="btn" onClick={handleSignOut}>
+            Sign Out
+          </button>
            </a>
         ) : (
+          <>
+          <li>
+          <a href="/login">Login</a>
+        </li>
             <a href="/register">
-          <li className="secondary btn"  onClick={handleOnClick}>        
+          <li className="secondary btn" >        
             <span> Sign Up</span>     
           </li>
           </a>
+          </>
         )}
         </ul>
       </div>

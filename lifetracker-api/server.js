@@ -1,11 +1,12 @@
+
 //Imports
 const express = require("express");
-const app = express();
+const app = express(); 
 const { NotFoundError } = require("./utils/errors.js");
-const security = require("./middleware/security");
+const security = require("./middleware/security.js");
 const cors = require("cors");
 const morgan = require("morgan");
-const { PORT } = require("./config");
+const { PORT } = require("./config.js");
 const { restart } = require("nodemon");
 
 // middleware
