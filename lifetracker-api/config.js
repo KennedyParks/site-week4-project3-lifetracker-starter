@@ -1,7 +1,7 @@
 //Enables loading environment variables from our .env file
 require("dotenv").config();
 //Enables adding colors to our console.log
-// require("colors");
+require("colors");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
 const IS_TESTING = process.env.NODE_ENV == "test" ? true : false;
@@ -20,8 +20,7 @@ function getDatabaseUri() {
 
   return (
     process.env.DATABASE_URL ||
-    //`postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
-    `postgres://lifetracker_drxj_user:PQ9IhwNkCEveBAHhQXHUN96lFldbzp6n@dpg-cik46a5ph6euh7jnuemg-a/lifetracker_drxj`
+    `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
   );
 }
 
