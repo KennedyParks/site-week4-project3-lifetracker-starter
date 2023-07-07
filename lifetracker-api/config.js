@@ -1,7 +1,7 @@
 //Enables loading environment variables from our .env file
 require("dotenv").config();
 //Enables adding colors to our console.log
-require("colors");
+// require("colors");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
 const IS_TESTING = process.env.NODE_ENV == "test" ? true : false;
