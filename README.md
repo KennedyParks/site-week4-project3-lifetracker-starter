@@ -23,6 +23,10 @@ By the end of this project you will be able to...
 
 https://imgur.com/a/FHFdUDN
 
+## Deployed Site
+
+https://lifetracker-frontend1.onrender.com/
+
 ### Core Features
 
 - [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
