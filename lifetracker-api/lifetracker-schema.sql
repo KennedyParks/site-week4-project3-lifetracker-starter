@@ -10,14 +10,12 @@ CREATE TABLE users (
 );
 
 CREATE TABLE nutrition (
-    id              SERIAL PRIMARY KEY, 
-    name            TEXT NOT NULL, 
-    category        TEXT NOT NULL, 
-    calories        TEXT NOT NULL,
-    image_url       TEXT NOT NULL, 
-    user_id         INTEGER NOT NULL, 
-    created_at      TIMESTAMP NOT NULL DEFAULT NOW(), 
-    username        TEXT NOT NULL, 
-    FOREIGN KEY     (username) REFERENCES users(username)
-    FOREIGN KEY (user_id) REFERENCES users(id)
+  id            SERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  category      TEXT NOT NULL,
+  quantity      INTEGER,
+  calories      INTEGER,
+  image_url     TEXT,
+  user_id       INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  created_at    TIMESTAMP NOT NULL DEFAULT NOW()   
 );

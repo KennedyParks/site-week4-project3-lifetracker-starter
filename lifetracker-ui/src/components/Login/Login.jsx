@@ -45,6 +45,8 @@ const handleOnInputChange = (event) => {
 
     try {
       const res = await axios.post(`http://localhost:3001/auth/login`, user);
+      console.log("--------------------",res)
+
       if (res?.data?.user) {
         setIsLoggedIn(true);
         setIsClicked(false);
@@ -53,6 +55,8 @@ const handleOnInputChange = (event) => {
 
         // Store the authentication status in localStorage
         localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        localStorage.setItem("token", res.data.token);
       } else {
         setErrors((e) => ({
           ...e,

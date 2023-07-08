@@ -13,8 +13,9 @@ class Nutrition {
   }
 
 
-  static async create(nutrition, email) {
-
+  static async addNutrition(nutrition, email) {
+console.log("nutrition", nutrition)
+console.log("email", email)
     const requiredFields = [
       "name",
       "category",

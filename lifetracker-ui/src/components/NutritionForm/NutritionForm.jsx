@@ -9,7 +9,7 @@ const NutritionForm = ({ setAppState }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  // const [nutritions, setNutritions] = useState([]);
+  const [nutritions, setNutritions] = useState([]);
   const [form, setForm] = useState({
     name: "",
     category: "",
@@ -31,6 +31,8 @@ const NutritionForm = ({ setAppState }) => {
       return alert("Please fill out the entire form.");
     }
 
+ const token = localStorage.getItem("token");
+    console.log(form.name);
     try {
       const res = await axios.post("http://localhost:3001/nutrition", {
         name: form.name,
@@ -38,12 +40,16 @@ const NutritionForm = ({ setAppState }) => {
         quantity: form.quantity,
         calories: form.calories,
         image_url: form.image_url,
+        token: token
       });
+    
 
       if (res?.data?.user) {
         setAppState(res.data);
         setIsLoading(false);
         navigate("/nutrition");
+        setNutritionData(form);
+
       } else {
         setErrors((e) => ({ ...e, form: "Something went wrong with registration" }));
         setIsLoading(false);
@@ -56,30 +62,6 @@ const NutritionForm = ({ setAppState }) => {
     }
   };
 
-  //Deploying for heroku
-
-  // const handleOnSubmitNutrition = async () => {
-  //   if (nutritionForm.name === "" || nutritionForm.category === "" || nutritionForm.quantity === "" || nutritionForm.calories === "") {
-  //     return alert("Please fill out the entire form.");
-  //   }
-
-  //   setIsLoading(true);
-
-  //   const { data } = await apiClient.addNutrition({
-  //     data: {
-  //       name: nutritionForm.name,
-  //       category: nutritionForm.category,
-  //       quantity: nutritionForm.quantity,
-  //       calories: nutritionForm.calories,
-  //       image_url: nutritionForm.image_url,
-  //     },
-  //   });
-  //   navigate("/nutrition");
-  //   // log data to see object
-  //   console.log("DATA ----->", data);
-  //   // setNutritions([...nutritions, data.nutritions]);
-  //   setIsLoading(false);
-  // };
 
   return (
     <div className="ExercisePage">

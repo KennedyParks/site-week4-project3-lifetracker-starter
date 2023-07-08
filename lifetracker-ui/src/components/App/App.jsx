@@ -9,6 +9,7 @@ import Exercise from "../Exercise/Exercise"
 import "./App.css"
 import LoginForm from "../LoginForm/LoginForm"
 import Nutrition from "../Nutrition/Nutrition"
+import NutritionForm from "../NutritionForm/NutritionForm"
 import Sleep from "../Sleep/Sleep"
 import * as React from "react"
 
@@ -97,7 +98,10 @@ export default function App() {
               />
             }
           />
+          <Route path="/nutrition-form" 
+          element={<NutritionForm />} />
         </Routes>
+        
       </BrowserRouter>
     </div>
   );

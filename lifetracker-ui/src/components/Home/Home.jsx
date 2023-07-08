@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div className='Home'>
         <div className="hero">
-            <img src='http://codepath-lifetracker.surge.sh/static/media/smartwatch-screen-digital-device.e2983a85.svg' alt="hero img"/>
+            <img src='https://images.everydayhealth.com/images/consisten-exercise-helps-anxiety-and-stress-1440x810.jpg' alt="Hero image"/>
             <h1>Life Tracker</h1>
-            <p>Helping you take back control of your world</p>
+            <p>Track your progress and grow</p>
         </div>
         <div className="tiles">
             <div className="tile">

@@ -20,6 +20,7 @@ export default function Login({ setAppState }) {
         `http://localhost:3001/auth/login`,
         user
       );
+      console.log("--------------------",res)
       if (res?.data?.user) {
         setAppState(res.data);
         navigate("/activity");

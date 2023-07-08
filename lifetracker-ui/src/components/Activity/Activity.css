@@ -14,7 +14,7 @@
     height: calc(100% - var(--navbar-height));
     min-height: calc(100vh - var(--navbar-height));
     overflow-x: hidden;
-    background: var(--dark-background);
+    background: #bea7a7;
   }
   a,
   div,
@@ -141,7 +141,7 @@
   
   .SummaryStatTeal {
     position: relative;
-    background: linear-gradient(64.7deg, #1000c9, #00c98e);
+    background: linear-gradient(64.7deg, #dfcccc, #ddc8ae);
   }
   
   .background {
@@ -153,25 +153,25 @@
   
   .SummaryStatOrange {
     position: relative;
-    background: linear-gradient(64.7deg, #8e3232, #c96d00);
+    background: linear-gradient(64.7deg, #dfcccc, #ddc8ae);
   }
   
   .SummaryStatRed {
-    background: linear-gradient(64.7deg, #c90000, rgba(251, 112, 144, 0.85));
+    background: linear-gradient(64.7deg, #dfcccc, #ddc8ae);
     position: relative;
   }
   
   .SummaryStatGold {
     position: relative;
-    background: linear-gradient(64.7deg, #ffab09, #ffab09);
+    background: linear-gradient(64.7deg, #dfcccc, #ddc8ae);
   }
   
   .SummaryStatPurple {
     position: relative;
-    background: linear-gradient(64.7deg, #441dfc, #4e81eb);
+    background: linear-gradient(64.7deg, #dfcccc, #ddc8ae);
   }
   
   .SummaryStatAqua {
     position: relative;
-    background: linear-gradient(64.7deg, #03c5d1, #03c5d1);
+    background: linear-gradient(64.7deg, #dfcccc, #ddc8ae);
   }
